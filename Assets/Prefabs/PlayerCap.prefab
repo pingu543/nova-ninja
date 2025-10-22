@@ -158,10 +158,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 550384b256984ca42a0a9d8532d2ccb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  movementSpeed: 200
-  turnSpeed: 10
+  movementSpeed: 10
+  turnSpeedDeg: 45
+  turnSmoothTime: 0.08
   dashMultiplier: 10
   dashCooldown: 3
+  reassessPeriod: 0.4
+  sustainBuffer: 0.1
 --- !u!114 &6920006649785767512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -586,27 +589,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7741789658537998096, guid: 01927840367e87a4cbe74573af36a6ff, type: 3}
       propertyPath: GestureDictionary.GestureInputs.Array.data[0].GestureEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Forward
+      value: ForwardPulse
       objectReference: {fileID: 0}
     - target: {fileID: 7741789658537998096, guid: 01927840367e87a4cbe74573af36a6ff, type: 3}
       propertyPath: GestureDictionary.GestureInputs.Array.data[1].GestureEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Forward
+      value: ForwardPulse
       objectReference: {fileID: 0}
     - target: {fileID: 7741789658537998096, guid: 01927840367e87a4cbe74573af36a6ff, type: 3}
       propertyPath: GestureDictionary.GestureInputs.Array.data[2].GestureEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Backward
+      value: BackwardPulse
       objectReference: {fileID: 0}
     - target: {fileID: 7741789658537998096, guid: 01927840367e87a4cbe74573af36a6ff, type: 3}
       propertyPath: GestureDictionary.GestureInputs.Array.data[3].GestureEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Backward
+      value: BackwardPulse
       objectReference: {fileID: 0}
     - target: {fileID: 7741789658537998096, guid: 01927840367e87a4cbe74573af36a6ff, type: 3}
       propertyPath: GestureDictionary.GestureInputs.Array.data[4].GestureEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TurnRight
+      value: TurnRightPulse
       objectReference: {fileID: 0}
     - target: {fileID: 7741789658537998096, guid: 01927840367e87a4cbe74573af36a6ff, type: 3}
       propertyPath: GestureDictionary.GestureInputs.Array.data[5].GestureEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TurnLeft
+      value: TurnLeftPulse
       objectReference: {fileID: 0}
     - target: {fileID: 7741789658537998096, guid: 01927840367e87a4cbe74573af36a6ff, type: 3}
       propertyPath: GestureDictionary.GestureInputs.Array.data[6].GestureEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
