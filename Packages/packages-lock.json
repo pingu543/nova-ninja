@@ -1,5 +1,34 @@
 {
   "dependencies": {
+    "com.gilzoide.sqlite-net": {
+      "version": "https://github.com/gilzoide/unity-sqlite-net.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "08248bd5884d8eb932a837aa56d4ff456daf913f"
+    },
+    "com.github.homuler.mediapipe": {
+      "version": "https://github.com/GYOUDNova/NOVA-Mediapipe-Package.git#v0.16.2",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.ugui": "1.0.0",
+        "com.unity.test-framework": "1.0.0"
+      },
+      "hash": "b1121d7566e2db43272a888bbd24556aca806631"
+    },
+    "com.gyoudnova.handrecognition": {
+      "version": "https://github.com/GYOUDNova/Nova.git#upm/v1.1.0",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.ugui": "2.0.0",
+        "com.gilzoide.sqlite-net": "1.2.3",
+        "com.github.homuler.mediapipe": "0.16.1",
+        "com.unity.editorcoroutines": "1.0.0"
+      },
+      "hash": "02fa10d4ca82044b58a11b2d2bb034c4082714d6"
+    },
     "com.unity.ai.navigation": {
       "version": "2.0.9",
       "depth": 0,
@@ -37,6 +66,13 @@
         "com.unity.nuget.mono-cecil": "1.11.5",
         "com.unity.test-framework.performance": "3.0.3"
       },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.editorcoroutines": {
+      "version": "1.0.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
       "url": "https://packages.unity.com"
     },
     "com.unity.ext.nunit": {
