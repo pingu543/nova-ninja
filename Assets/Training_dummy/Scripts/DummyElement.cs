@@ -149,6 +149,13 @@ public class DummyElement : MonoBehaviour
 
     void OnDefeat()
     {
+
+        // play the second sound attached to this dummy (not through SoundManager)
+        AudioSource[] audioSources = GetComponents<AudioSource>();
+        if (audioSources.Length >= 2 && audioSources[1] != null)
+        {
+            audioSources[1].Play();
+        }
         // Resume the animation when defeated
         if (TryGetComponent<Animator>(out var animator2))
         {
@@ -181,6 +188,7 @@ public class DummyElement : MonoBehaviour
             onDefeatAnimationComplete?.Invoke();
             return;
         }
+
     }
 
     void SpawnExplosion()
@@ -261,6 +269,12 @@ public class DummyElement : MonoBehaviour
         else
         {
             Debug.LogWarning($"[{nameof(DummyElement)}] PlayerAttack component not found on '{gameObject.name}' for counterattack.");
+        }
+        // play the first sound attached to this dummy (not through SoundManager)
+        AudioSource[] audioSources = GetComponents<AudioSource>();
+        if (audioSources.Length >= 1 && audioSources[0] != null)
+        {
+            audioSources[0].Play();
         }
     }
 
