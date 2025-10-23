@@ -232,8 +232,31 @@ public class DummyElement : MonoBehaviour
 
     void CounterAttack()
     {
-        // Placeholder for counterattack logic.
-        Debug.Log($"[{nameof(DummyElement)}] Counterattack triggered by '{gameObject.name}' with element '{elementType}'.");
+        // PlayerAttack object is attached to the dummy.
+        // Call the FireAttack, EarthAttack, or WaterAttack method based on this dummy's element type.
+        var playerAttack = GetComponent<PlayerAttack>();
+        if (playerAttack != null)
+        {
+            switch (elementType)
+            {
+                case ElementType.Fire:
+                    playerAttack.FireAttack();
+                    break;
+                case ElementType.Water:
+                    playerAttack.WaterAttack();
+                    break;
+                case ElementType.Earth:
+                    playerAttack.EarthAttack();
+                    break;
+                default:
+                    Debug.LogWarning($"[{nameof(DummyElement)}] No counterattack defined for element type '{elementType}' on '{gameObject.name}'.");
+                    break;
+            }
+        }
+        else
+        {
+            Debug.LogWarning($"[{nameof(DummyElement)}] PlayerAttack component not found on '{gameObject.name}' for counterattack.");
+        }
     }
 
     // Update is called once per frame

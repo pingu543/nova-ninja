@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: -8485448189905661049}
   - component: {fileID: 8740307747749021190}
   - component: {fileID: 3814611373146390069}
+  - component: {fileID: 7412543740602418865}
   m_Layer: 0
   m_Name: training_dummy
   m_TagString: Untagged
@@ -222,8 +223,8 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
+  m_UseGravity: 1
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -244,6 +245,26 @@ MonoBehaviour:
   smoothSpeed: 10
   upVector: {x: 0, y: 1, z: 0}
   isEnabled: 1
+--- !u!114 &7412543740602418865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4697017240656324050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8deb9df84cdc1148a9accd6c52e00d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
+  spawnOffset: 1
+  projectileSpeed: 3
+  fireBall: {fileID: 903745523652228311, guid: 8737c753809dc6049bf29e0771d57e04, type: 3}
+  earthBall: {fileID: 1116295231213664488, guid: 8741420bc2de9b944a7a994aab8bec11, type: 3}
+  waterBall: {fileID: 6009753377179921884, guid: 26306a44836680242b0a28d1c4970275, type: 3}
+  fireCooldown: 0
+  earthCooldown: 0
+  waterCooldown: 0
 --- !u!1 &6774080502169825540
 GameObject:
   m_ObjectHideFlags: 0
