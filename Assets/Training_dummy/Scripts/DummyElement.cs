@@ -1,8 +1,10 @@
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
+#if UNITY_EDITOR
+using UnityEditorInternal;
+#endif
 
-// [RequireComponent(typeof(Renderer))]
 public class DummyElement : MonoBehaviour
 {
     // Public variable with a drop down to select element type (fire, water, earth).
@@ -81,6 +83,9 @@ public class DummyElement : MonoBehaviour
         {
             rend.material = selected;
         }
+
+        // Set the GameObject's tag to match the element (or Untagged for None)
+        TrySetTagForElement(elementType);
 
         // Pause the animation at the start        
         if (TryGetComponent<Animator>(out var animator))
@@ -308,6 +313,50 @@ public class DummyElement : MonoBehaviour
         // mark dirty so changes persist and repaint scene view
         UnityEditor.EditorUtility.SetDirty(this);
         UnityEditor.SceneView.RepaintAll();
+#endif
+
+        // Ensure the tag matches the selected element in the editor as well
+        TrySetTagForElement(elementType);
+    }
+
+    /// <summary>
+    /// Try to set the GameObject tag based on the element type.
+    /// - "Fire", "Water", "Earth" tags are used for the respective elements.
+    /// - "Untagged" is used for None.
+    /// If the tag does not exist in the project's Tag Manager, a warning is logged with guidance.
+    /// </summary>
+    void TrySetTagForElement(ElementType elem)
+    {
+        string tagName = elem == ElementType.None ? "Untagged" : elem.ToString();
+
+#if UNITY_EDITOR
+        // In editor we can check available tags
+        var tags = InternalEditorUtility.tags; // UnityEditorInternal
+        if (tagName == "Untagged" || System.Array.IndexOf(tags, tagName) >= 0)
+        {
+            try
+            {
+                gameObject.tag = tagName;
+            }
+            catch (System.Exception ex)
+            {
+                Debug.LogWarning($"[{nameof(DummyElement)}] Failed to set tag '{tagName}' on '{gameObject.name}': {ex.Message}");
+            }
+        }
+        else
+        {
+            Debug.LogWarning($"[{nameof(DummyElement)}] Tag '{tagName}' is not defined in the project's Tag Manager. Add it via the Tag Manager (Add Tag) before running. GameObject '{gameObject.name}' remains with tag '{gameObject.tag}'.");
+        }
+#else
+        // At runtime, setting an undefined tag will throw; handle that gracefully.
+        try
+        {
+            gameObject.tag = tagName;
+        }
+        catch (UnityEngine.UnityException)
+        {
+            Debug.LogWarning($"[{nameof(DummyElement)}] Tag '{tagName}' is not defined in this build for GameObject '{gameObject.name}'. Define the tag in the Editor's Tag Manager and rebuild. Current tag remains '{gameObject.tag}'.");
+        }
 #endif
     }
 }
