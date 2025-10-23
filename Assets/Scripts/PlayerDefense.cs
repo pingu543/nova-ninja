@@ -33,7 +33,16 @@ public class PlayerDefense : MonoBehaviour
         lastSpawnTime = Time.time;
 
         Vector3 spawnPos = transform.position + transform.forward * spawnDistanceFromPlayer;
-        GameObject wall = Instantiate(wallPrefab, spawnPos, Quaternion.identity);
+
+        // direction to player
+        Vector3 directionToPlayer = (transform.position - spawnPos);
+
+        directionToPlayer.y = 0; // keep horizontal
+        directionToPlayer.Normalize();
+
+        Quaternion rotation = Quaternion.LookRotation(directionToPlayer);
+
+        GameObject wall = Instantiate(wallPrefab, spawnPos, rotation);
 
         // Optional: place it buried below ground
         Renderer rend = wall.GetComponentInChildren<Renderer>();
