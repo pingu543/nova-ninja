@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
   spawnOffset: 1
-  projectileSpeed: 25
+  projectileSpeed: 10
   fireBall: {fileID: 903745523652228311, guid: 8737c753809dc6049bf29e0771d57e04, type: 3}
   earthBall: {fileID: 1116295231213664488, guid: 8741420bc2de9b944a7a994aab8bec11, type: 3}
   waterBall: {fileID: 6009753377179921884, guid: 26306a44836680242b0a28d1c4970275, type: 3}
