@@ -34,6 +34,12 @@ public class GoalScript : MonoBehaviour
         {
             if (other.CompareTag(tag))
             {
+                // play the attached audio
+                AudioSource audioSource = GetComponent<AudioSource>();
+                if (audioSource != null)
+                {
+                    audioSource.Play();
+                }
                 gameManager.EndGame();
                 //gameManager.RegisterPlayerHit(); // Example action; replace with desired behavior
                 return;
