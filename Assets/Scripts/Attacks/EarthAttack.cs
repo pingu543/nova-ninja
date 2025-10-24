@@ -2,24 +2,74 @@ using UnityEngine;
 
 public class EarthAttack : MonoBehaviour
 {
+    private const string FIRE_TAG = "Fire";
+    private const string WATER_TAG = "Water";
+    private const string EARTH_TAG = "Earth";
+    private const string PLAYER_TAG = "Player";
+    private const string TROPHY_TAG = "Trophy";
+
     //[SerializeField] private float projectileSpeed = 10.0f;
-    [SerializeField] private float projectileLife = 5.0f;
+    [SerializeField] public float defaultLifespan = 8f;
+    [SerializeField] public float bounceLifespan = 3f;
+
+    private Vector3 preCollisionVelocity;
+    private Rigidbody rb;
 
     Renderer renderer;
-    //Rigidbody rb;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         renderer = GetComponent<Renderer>();
-        GetComponent<Renderer>().material.color = Color.sandyBrown;
-        // rb = GetComponent<Rigidbody>(); //don't need because movement has moved to PlayerAttack
-        Destroy(gameObject, projectileLife);
+        renderer.material.color = Color.sandyBrown;
+
+        rb = GetComponent<Rigidbody>();
+
+        Destroy(gameObject, defaultLifespan);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter(Collision collision) // Called when this collider/rigidbody has begun touching another rigidbody/collider
     {
+        GameObject otherObject = collision.gameObject;
+        string otherTag = otherObject.tag;
 
+        // loss
+        if (otherTag == FIRE_TAG)
+        {
+            Destroy(gameObject);
+        }
+        // win
+        else if (otherTag == WATER_TAG)
+        {
+            // if water wall
+            WallMarker wallMarker = otherObject.GetComponent<WallMarker>();
+            if (wallMarker != null)
+            {
+                Destroy(otherObject);
+                if (rb != null)
+                {
+                    rb.linearVelocity = preCollisionVelocity;
+                }
+            }
+            else // if water projectile
+            {
+                Destroy(gameObject, bounceLifespan);
+            }
+        }
+        // player
+        else if (otherTag == PLAYER_TAG)
+        {
+            Destroy(gameObject);
+            // DAMAGE (or lessen rank. But it might exist elsewhere)
+        }
+        // target?
+        //
+        // wall?
+        //
+        // tie (and environment)
+        else
+        {
+            Destroy(gameObject, bounceLifespan);
+        }
     }
 }
