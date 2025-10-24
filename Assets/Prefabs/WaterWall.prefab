@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4483604988439114259}
   - component: {fileID: 6283123412458966699}
   - component: {fileID: 854960914878044899}
+  - component: {fileID: -2725761539075114545}
   m_Layer: 0
   m_Name: WaterWall
   m_TagString: Water
@@ -99,7 +100,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2879066909903418552}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 73921f6808f23774d8a53349521e861f, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -224,3 +225,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-2725761539075114545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2879066909903418552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2101eb03a67d93488be166dac309642, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WallMarker

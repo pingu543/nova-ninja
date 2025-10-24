@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goal (Gold Cup Variant)
       objectReference: {fileID: 0}
+    - target: {fileID: 1500322242242810881, guid: 8ecf111a70e7b9745a9300bb30b9195c, type: 3}
+      propertyPath: m_TagString
+      value: Finish
+      objectReference: {fileID: 0}
     - target: {fileID: 1500322242242810882, guid: 8ecf111a70e7b9745a9300bb30b9195c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
