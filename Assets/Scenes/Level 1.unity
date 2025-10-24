@@ -4068,17 +4068,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5533933385143433846, guid: 4174736bfe39a4742b8343b3bb08e2ff, type: 3}
+      propertyPath: m_AngularDamping
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6920006649785767512, guid: 4174736bfe39a4742b8343b3bb08e2ff, type: 3}
       propertyPath: fireCooldown
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6920006649785767512, guid: 4174736bfe39a4742b8343b3bb08e2ff, type: 3}
       propertyPath: earthCooldown
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6920006649785767512, guid: 4174736bfe39a4742b8343b3bb08e2ff, type: 3}
       propertyPath: waterCooldown
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
