@@ -101,7 +101,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6009753377179921884}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 73921f6808f23774d8a53349521e861f, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -127,7 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4258fba10eacb9448b24115140c3455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaterAttack
-  projectileLife: 5
+  defaultLifespan: 8
+  bounceLifespan: 3
 --- !u!54 &-2703647374683349289
 Rigidbody:
   m_ObjectHideFlags: 0

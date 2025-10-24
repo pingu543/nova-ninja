@@ -101,7 +101,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1116295231213664488}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 73921f6808f23774d8a53349521e861f, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -127,7 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f74779a60748b94997d67b54428ad95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EarthAttack
-  projectileLife: 5
+  defaultLifespan: 8
+  bounceLifespan: 3
 --- !u!54 &3547711498724972891
 Rigidbody:
   m_ObjectHideFlags: 0
